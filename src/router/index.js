@@ -13,7 +13,6 @@ import Success from "../components/post/success.vue"
 import Rentalinfo from "../components/Rent/RentalInfo.vue"
 import RentalCheck from "../components/Rent/RentalInfo.vue"
 import RentalSearch from "../components/Rent/RentalSearch.vue"
-import estate from '../components/estate/estate.vue'
 Vue.use(VueRouter)
 
 const routes =
@@ -59,8 +58,8 @@ const routes =
           component:CompanyAddUpdate
         },
         {
-          path:'estate',
-          component:estate
+          path:'RentalCheck',
+          component:RentalCheck
         },
       ]
     },
