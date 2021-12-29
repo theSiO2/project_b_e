@@ -7,8 +7,8 @@
     width="600px"
   >
     <el-form label-position="right" label-width="100px" :model="searchForm">
-      <el-form-item label="城市/地区：">
-        <!-- <el-select
+      <el-form-item label="城市：">
+        <el-select
           v-model="searchForm.cityId"
           placeholder="请选择城市"
           style="width: 100%"
@@ -20,16 +20,7 @@
             :value="item.id"
             :label="item.name"
           ></el-option>
-        </el-select> -->
-
-        <el-cascader
-          v-model="region"
-          :options="regionList"
-          :props="defalutProps"
-          @change="handleChange"
-          style="width: 30%"
-          placeholder="请选择地区"
-        ></el-cascader>
+        </el-select>
       </el-form-item>
       <el-form-item label="专业：">
         <el-select
@@ -56,7 +47,7 @@
           <el-option
             v-for="item in issueStatusList"
             :key="item.index"
-            :value="item.label"
+            :value="item"
           >
           </el-option>
         </el-select>
@@ -85,20 +76,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      regionList: [],
-      region: "",
       visible: false,
       searchForm: {
         cityId: "",
-        regionId: "",
         majorId: "",
         issueStatus: "",
         issueDate: "",
-      },
-      defalutProps: {
-        value: "id",
-        label: "name",
-        children: "children",
       },
       cityList: [],
       majorList: [],
@@ -135,10 +118,6 @@ export default {
       this.$emit("searchfunc", this.searchForm); //自定义事件，让父组件执行监听的事件，传过去的参数为this.searchForm
       this.$emit("refreshdatalist", 1); //自定义事件，让父组件执行监听的事件，传过去的参数为1（代表跟新了搜索条件 ）
       this.visible = false;
-    },
-    handleChange() {
-      this.searchForm.cityId = this.region[0];
-      this.searchForm.regionId = this.region[1];
     },
   },
 };
