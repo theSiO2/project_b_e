@@ -113,6 +113,7 @@
 
 <script>
 import axios from "axios";
+import { MessageBox } from "element-ui";
 import companyAddOrUpdate from "./Company-add-or-update.vue";
 export default {
   name: "Company",
@@ -172,7 +173,7 @@ export default {
       } else {
         this.ids = this.multipleSelection.map((item) => item.id);
       }
-      this.$confirm(
+      MessageBox.confirm(
         "请谨慎使用，此操作将会删除公司信息以及公司下的所有岗位信息，确定要继续吗？",
         "提示",
         {

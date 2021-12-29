@@ -126,8 +126,8 @@ export default {
       this.visible = false;
     },
     handleChange() {
-      this.jobForm.regionParentId = this.region[0];
-      this.jobForm.regionId = this.region[1];
+      this.searchForm.cityId = this.region[0];
+      this.searchForm.regionId = this.region[1];
     },
   },
   computed: {

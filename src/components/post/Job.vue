@@ -445,6 +445,7 @@ export default {
       queryInfo: {
         query: "",
         cityId: "",
+        regionId: "",
         majorId: "",
         issueStatus: "",
         issueDate: "",
@@ -465,6 +466,7 @@ export default {
     getSearchData(searchData) {
       console.log("search");
       this.queryInfo.cityId = searchData.cityId;
+      this.queryInfo.regionId=searchData.regionId;
       this.queryInfo.majorId = searchData.majorId;
       this.queryInfo.issueDate = searchData.issueDate;
       this.queryInfo.issueStatus = searchData.issueStatus;
@@ -482,6 +484,7 @@ export default {
           params: {
             query: this.queryInfo.query,
             cityId: this.queryInfo.cityId,
+            regionId: this.queryInfo.regionId,
             majorId: this.queryInfo.majorId,
             issueStatus: this.queryInfo.issueStatus,
             issueDate: this.queryInfo.issueDate,
